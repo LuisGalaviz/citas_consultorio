@@ -1,0 +1,11 @@
+# Archivos compilados de Java
+*.class
+
+# Archivos temporales
+*.swp
+
+# Carpetas de NetBeans que no se deben subir
+nbproject/private/
+build/
+dist/
+
