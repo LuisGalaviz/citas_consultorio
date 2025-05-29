@@ -1,5 +1,19 @@
+<<<<<<< HEAD
 *.class
 *.swp
 nbproject/private/
 build/
 dist/
+=======
+# Archivos compilados de Java
+*.class
+
+# Archivos temporales
+*.swp
+
+# Carpetas de NetBeans que no se deben subir
+nbproject/private/
+build/
+dist/
+
+>>>>>>> 1c931b6 (Primer commit del proyecto de citas)
