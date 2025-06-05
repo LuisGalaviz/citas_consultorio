@@ -230,12 +230,17 @@ public class Evidencia {
     static void citalist(){
         System.out.println("6. Listar citas");
         System.out.println();
-        System.out.println("Fecha y hora de la consulta: ");
+        System.out.println("Citas totales: ");
         
         for (int i = 0; i < totalcitas; i++) {
             int pacienteIndex = cp[i];
+            int medicoIndex = cm[i];
+            
             String nombrePaciente = pn[pacienteIndex] + " " + pe[pacienteIndex];
-            System.out.println((i + 1) + ". " + cf[i] + ", " + ch[i] + " - Paciente: " + nombrePaciente);        }
+            String nombreMedico = mn[medicoIndex] + " (" + me[medicoIndex] + ")";
+            System.out.println((i + 1) + ". " + cf[i] + ", " + ch[i] + " - Paciente: " + nombrePaciente 
+                    + ", Medico: " + nombreMedico);        
+        }
         
         menu();
     }
