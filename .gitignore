@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 *.class
 *.swp
 nbproject/private/
@@ -17,3 +18,53 @@ build/
 dist/
 
 >>>>>>> 1c931b6 (Primer commit del proyecto de citas)
+=======
+# Archivos y carpetas de Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Carpetas de compilación de Visual Studio
+bin/
+obj/
+
+# Archivos generados por Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/
+.settings/
+
+# Archivos de Eclipse y NetBeans (si usas alguno)
+.project
+.classpath
+.settings/
+.nb-gradle/
+
+# Archivos temporales y logs
+*.log
+*.tmp
+*.bak
+*.swp
+.DS_Store
+
+# Archivos generados por sistema operativo
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Archivos de Java
+*.class
+
+# Archivos de IntelliJ IDEA (por si acaso)
+.idea/
+*.iml
+out/
+>>>>>>> 8525ba3 (Agregar .gitignore corregido)
