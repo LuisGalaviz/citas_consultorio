@@ -20,7 +20,9 @@ public class Evidencia {
     static int totalmedicos = 0;
     static int totalpacientes = 0;
     static int totalcitas = 0;
-    
+    static int[] cp = new int[100]; 
+    static int[] cm = new int[100];
+
     
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
@@ -124,9 +126,23 @@ public class Evidencia {
         pe[totalpacientes] = entrada.nextLine();
         System.out.print("El paciente viene a: ");
         pv[totalpacientes] = entrada.nextLine();
-
         totalpacientes++;
-        menu();
+        
+        System.out.println("");
+        System.out.println("Quieres agender una cita?");
+        System.out.println("1. Si");
+        System.out.println("2. No");
+        System.out.print("Opcion: ");
+        int ele = entrada.nextInt();
+        
+        if (ele == 1){
+            System.out.println("");
+            citaadd();
+        }
+        else 
+        {
+            menu();
+        }
     }
     
     //Numero 3
@@ -135,11 +151,52 @@ public class Evidencia {
         
         System.out.println("3. Crear una cita");
         System.out.print("Fecha: ");
-        cf[totalcitas] = entrada.nextLine();
+        String fecha = entrada.nextLine();
         System.out.print("Hora: ");
-        ch[totalcitas] = entrada.nextLine();
+        String hora = entrada.nextLine();
         
-        totalcitas++;
+        System.out.println("");
+        System.out.println("A que paciente sera asignada esta cita?");
+        System.out.println("");
+        for (int i = 0; i < totalpacientes; i++) {
+        System.out.println((i+1) + ". " + pn[i] + ", " + pe[i] + ", " + pv[i]);
+        }
+        
+        int ele = -1;
+    do {
+        System.out.print("Elegir un paciente [1-" + totalpacientes + "]: ");
+        if (entrada.hasNextInt()) {
+            ele = entrada.nextInt();
+        } else {
+            entrada.next(); 
+        }
+    } while (ele < 1 || ele > totalpacientes);
+    entrada.nextLine(); 
+    
+        System.out.println("");
+     System.out.println("A que medico sera asignada esta cita?");
+    for (int i = 0; i < totalmedicos; i++) {
+        System.out.println((i+1) + ". " + mn[i] + ", " + me[i]);
+    }
+    
+    int eleMedico = -1;
+    do {
+        System.out.println("");
+        System.out.print("Elegir un medico [1-" + totalmedicos + "]: ");
+        if (entrada.hasNextInt()) {
+            eleMedico = entrada.nextInt();
+        } else {
+            entrada.next();
+        }
+    } while (eleMedico < 1 || eleMedico > totalmedicos);
+    entrada.nextLine();
+
+    cf[totalcitas] = fecha;
+    ch[totalcitas] = hora;
+    cp[totalcitas] = ele - 1; 
+    cm[totalcitas] = eleMedico - 1; 
+    totalcitas++;
+        
         menu();
     }
     
@@ -176,8 +233,9 @@ public class Evidencia {
         System.out.println("Fecha y hora de la consulta: ");
         
         for (int i = 0; i < totalcitas; i++) {
-        System.out.println((i+1) + ". " + cf[i] + ", " + ch[i]);
-        }
+            int pacienteIndex = cp[i];
+            String nombrePaciente = pn[pacienteIndex] + " " + pe[pacienteIndex];
+            System.out.println((i + 1) + ". " + cf[i] + ", " + ch[i] + " - Paciente: " + nombrePaciente);        }
         
         menu();
     }
